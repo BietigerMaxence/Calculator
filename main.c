@@ -42,6 +42,10 @@ int main() {
             printf("%.1f\n", multiplication(num1, num2));
             break;
         case '/':
+            if (num2 == 0) {
+                printf("Division by zero\n");
+                break;
+            }
             printf("%.1f\n", division(num1, num2));
             break;
     }
