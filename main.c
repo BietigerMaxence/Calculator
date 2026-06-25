@@ -1,3 +1,4 @@
+#include <math.h>
 #include <stdio.h>
 
 float addition(float a, float b) {
@@ -16,6 +17,14 @@ float division(float a, float b) {
     return a / b;
 }
 
+int modulo(float a, float b) {
+    return (int) a % (int) b;
+}
+
+double power(double a, double b) {
+    return pow(a, b);
+}
+
 int main() {
     float num1, num2;
     char operator;
@@ -30,8 +39,8 @@ int main() {
             continue;
         }
 
-        printf("Choose one operator (+ * - /):\n");
-        if (scanf(" %c", &operator) != 1 || (operator != '+' && operator != '-' && operator != '*' && operator != '/')) {
+        printf("Choose one operator (+ * - / %% ^):\n");
+        if (scanf(" %c", &operator) != 1 || (operator != '+' && operator != '-' && operator != '*' && operator != '/' && operator != '%' && operator != '^')) {
             printf("Invalid operator\n");
             int c;
             while ((c = getchar()) != '\n' && c != EOF) { }
@@ -55,6 +64,18 @@ int main() {
                 }
                 printf("%.1f\n", division(num1, num2));
                 break;
+            case '%':
+                if (num2 == 0) {
+                    printf("Division by zero\n");
+                    break;
+                }
+                printf("%d\n", modulo(num1, num2));
+                break;
+            case '^':
+                printf("%.1f\n", power(num1, num2));
+                break;
+            default:
+                printf("Invalid operator\n");
         }
         printf("Quitter ? (y/n) : ");
         if (scanf(" %c", &quit) != 1) {
