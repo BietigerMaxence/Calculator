@@ -32,7 +32,7 @@ int main() {
     while (quit != 'y') {
 
         printf("Choose two numbers:\n");
-        if (scanf(" %f", &num1) != 1 || scanf(" %f", &num2) != 1) {
+        if (scanf(" %f", &num1) != 1 || scanf(" %f", &num2) != 1) { // NOLINT(cert-err34-c)
             printf("Invalid numbers\n");
             int c;
             while ((c = getchar()) != '\n' && c != EOF) { }
